@@ -1,0 +1,43 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.block {
+  display: block;
+}
+
+.App {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.AppHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5%;
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex !important;
+  justify-content: center;
+}
+
+.App .carousel-control-next,
+.App .carousel-control-prev {
+  width: 10vw;
+}
+
+.App .carousel-indicators {
+  top: 100%;
+}
