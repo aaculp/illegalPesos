@@ -2,6 +2,8 @@ body,
 html {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .block {
@@ -9,12 +11,12 @@ html {
 }
 
 .App {
-  background-color: black;
+  background-color: #292a33;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 0;
-  color: white;
+  color: #fcfcfa;
 }
 
 .AppHeader {
@@ -23,7 +25,6 @@ html {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 5%;
 }
 
 .carousel-item-next,
@@ -40,4 +41,16 @@ html {
 
 .App .carousel-indicators {
   top: 100%;
+}
+
+.App .MuiGrid-container {
+  justify-content: space-around;
+}
+
+.MuiGrid-item.productContainer {
+  width: 20%;
+}
+
+.MuiCard-root {
+  height: 100%;
 }
