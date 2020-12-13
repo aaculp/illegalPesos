@@ -24,22 +24,43 @@ function App() {
   };
 
   const handleAddToCart = async (productId, quantity) => {
-    const item = await commerce.cart.add(productId, quantity);
-    setCart(item.cart);
-    console.log(cart);
+    const { cart } = await commerce.cart.add(productId, quantity);
+    setCart(cart);
   };
+
+  const handleUpdateCartNum = async (productId, quantity) => {
+    const { cart } = await commerce.cart.update(productId, { quantity })
+    setCart(cart)
+  }
+
+  const handleRemoveCartItem = async (productId) => {
+    const { cart } = await commerce.cart.remove(productId)
+    setCart(cart)
+  }
+
+  const handleEmptyCart = async () => {
+    const { cart } = await commerce.cart.empty();
+    setCart(cart)
+  }
 
   return (
     <Router>
       <div className="App">
         <NavBar products={products} totalItems={cart.total_items} />
         <Music />
-        <Route exact path="/">
-          <Store products={products} onAddToCart={handleAddToCart} />
-        </Route>
-        <Route exact path="/cart">
-          <Cart cart={cart} products={products} />
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Store products={products} onAddToCart={handleAddToCart} />
+          </Route>
+          <Route exact path="/cart">
+            <Cart 
+              cart={cart} 
+              handleUpdateCartNum={handleUpdateCartNum}
+              handleRemoveCartItem={handleRemoveCartItem}
+              handleEmptyCart={handleEmptyCart}
+            />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );

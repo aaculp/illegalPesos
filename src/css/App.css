@@ -12,11 +12,11 @@ html {
 
 .App {
   background-color: #292a33;
+  color: #fcfcfa;
   height: 100vh;
   width: 100%;
   margin: 0;
   padding: 0;
-  color: #fcfcfa;
 }
 
 .AppHeader {
@@ -44,7 +44,7 @@ html {
 }
 
 .App .MuiGrid-container {
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .MuiGrid-item.productContainer {
@@ -53,4 +53,18 @@ html {
 
 .MuiCard-root {
   height: 100%;
+}
+
+.App .MuiContainer-maxWidthLg {
+  max-width: unset;
+  background-color: #292a33;
+}
+
+.App ..makeStyles-cardDetails-15 {
+  display: flex;
+  justify-content: space-between;
+  background-color: #292a33;
+  margin-top: unset;
+  width: 100%;
+  padding: 5% 5%;
 }

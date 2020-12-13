@@ -11,8 +11,7 @@ import {
 import useStyles from "./styles";
 import img from "../../../assets/airpods.jpg";
 
-const CartItem = ({ item, products }) => {
-  console.log(products);
+const CartItem = ({ item, onHandleUpdateCartNum, onHandleRemoveCartItem }) => {
   const classes = useStyles();
   return (
     <Card>
@@ -25,17 +24,11 @@ const CartItem = ({ item, products }) => {
       </CardContent>
       <CardActions className={classes.CardActions}>
         <div className={classes.buttons}>
-          <Button type="button" size="small" onClick="">
-            -
-          </Button>
+          <Button type="button" size="small" onClick={() => onHandleUpdateCartNum(item.id, item.quantity - 1 )}> - </Button>
           <Typography>{item.quantity}</Typography>
-          <Button type="button" size="small" onClick="">
-            +
-          </Button>
+          <Button type="button" size="small" onClick={() => onHandleUpdateCartNum(item.id, item.quantity + 1 )}> + </Button>
         </div>
-        <Button variant="contained" type="button" color="secondary">
-          Remove
-        </Button>
+        <Button variant="contained" type="button" color="secondary" onClick={() => onHandleRemoveCartItem(item.id)}> Remove </Button>
       </CardActions>
     </Card>
   );

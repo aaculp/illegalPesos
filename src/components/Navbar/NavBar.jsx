@@ -1,4 +1,6 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
+
 import {
   AppBar,
   Toolbar,
@@ -17,6 +19,8 @@ import useStyles from "./styles";
 const NavBar = ({ products, totalItems }) => {
   const classes = useStyles();
 
+  const location = useLocation();
+
   const handleCartPress = () => {
     console.log(products);
   };
@@ -24,7 +28,7 @@ const NavBar = ({ products, totalItems }) => {
     <>
       <AppBar position="fixed" className={classes.appBar} color="secondary">
         <Toolbar>
-          <Typography variant="h6" color="inherit" className={classes.title}>
+          <Typography component={Link} to='/' variant="h6" color="inherit" className={classes.title}>
             <img
               src=""
               alt="Illegal Pe$os"
@@ -33,17 +37,15 @@ const NavBar = ({ products, totalItems }) => {
             />
           </Typography>
           <div className={classes.grow} />
-          <div className={classes.button}>
-            <IconButton aria-label="show car items" color="inherit">
-              <Badge
-                badgeContent={totalItems}
-                color="primary"
-                onClick={() => handleCartPress()}
-              >
+          {location.pathname === '/' && (
+            <div className={classes.button}>
+            <IconButton component={Link} to='/cart' aria-label="show cart items" color="inherit">
+              <Badge badgeContent={totalItems} color="primary" onClick={() => handleCartPress()}>
                 <ShoppingCart />
               </Badge>
             </IconButton>
           </div>
+          )}
         </Toolbar>
       </AppBar>
     </>
