@@ -15,13 +15,7 @@ const StoreItems = ({ product, onAddToCart }) => {
     <Card>
       <img src={img} style={{ width: "100%", margin: "1em 0" }} />
       <CardContent>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-          }}
-        >
+        <div>
           <Typography variant="h6" gutterBottom>
             {product.name}
           </Typography>
@@ -41,7 +35,7 @@ const StoreItems = ({ product, onAddToCart }) => {
           dangerouslySetInnerHTML={{ __html: product.description }}
           variant="body2"
           color="textSecondary"
-          style={{ textAlign: "center" }}
+          style={{ textAlign: "center", justifyContent: 'center' }}
         />
         <CardActions disableSpacing>
           <IconButton aria-label="Add to Cart" onClick={() => onAddToCart(product.id, 1)}>
@@ -54,6 +48,3 @@ const StoreItems = ({ product, onAddToCart }) => {
 };
 
 export default StoreItems;
-
-// className={classes.root}
-// className={classes.media}

@@ -1,70 +1,86 @@
 body,
 html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #292a33;
+}
+
+@media only screen and (max-width: 767px) {
+    .MuiGrid-item.productContainer {
+        width: 100%;
+    }
+
+    .makeStyles-cardDetails-19 {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .MuiGrid-item.productContainer {
+        width: 20%;
+    }
 }
 
 .block {
-  display: block;
+    display: block;
 }
 
 .App {
-  background-color: #292a33;
-  color: #fcfcfa;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+    background-color: #292a33;
+    color: #fcfcfa;
+    height: 100vh;
+    width: 100%;
 }
 
 .AppHeader {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {
-  display: flex !important;
-  justify-content: center;
+    display: flex !important;
+    justify-content: center;
 }
 
 .App .carousel-control-next,
 .App .carousel-control-prev {
-  width: 10vw;
+    width: 10vw;
 }
 
 .App .carousel-indicators {
-  top: 100%;
+    top: 100%;
 }
 
 .App .MuiGrid-container {
-  justify-content: center;
-}
-
-.MuiGrid-item.productContainer {
-  width: 20%;
+    justify-content: center;
 }
 
 .MuiCard-root {
-  height: 100%;
+    height: 100%;
 }
 
 .App .MuiContainer-maxWidthLg {
-  max-width: unset;
-  background-color: #292a33;
+    max-width: unset;
+    background-color: #292a33;
 }
 
-.App ..makeStyles-cardDetails-15 {
-  display: flex;
-  justify-content: space-between;
-  background-color: #292a33;
-  margin-top: unset;
-  width: 100%;
-  padding: 5% 5%;
+.App .makeStyles-cardDetails-15 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #292a33;
+    margin-top: unset;
+    width: 100%;
+    padding: 5% 5%;
+}
+
+.MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    background-color: #292a33;
 }

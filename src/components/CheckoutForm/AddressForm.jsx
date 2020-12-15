@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import {
     InputLabel,
     Select,
-    SelectMenuItem,
+    MenuItem,
     Button,
     Grid,
     Typography,
-    MenuItem,
 } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import { useForm, FormProvider } from "react-hook-form";
@@ -29,10 +28,10 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
-        console.log("Countries", countries)
+        console.log(countries)
         setShippingCountries(countries);
         setShippingCountry(Object.keys(countries)[0]);
-    };
+      };
 
     const fetchSubdivisions = async (countryCode) => {
         const { subdivisions } = await commerce.services.localeListShippingCountries(countryCode);
@@ -90,7 +89,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                                 onChange={(e) => setShippingCountry(e.target.value)}
                             >
                                 {countries.map((country) => {
-                                    <MenuItem key={country.id} value={country.id}>{country.label}</MenuItem>
+                                    return <MenuItem key={country.id} value={country.id}>{country.label}</MenuItem>
                                 })}
                             </Select>
                         </Grid>
@@ -102,7 +101,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                                 onChange={(e) => setShippingSubdivision(e.target.value)}
                             >
                                 {subdivisons.map((subdivision) => {
-                                    <MenuItem key={subdivision.id} value={subdivision.id}>{subdivision.label}</MenuItem>
+                                    return <MenuItem key={subdivision.id} value={subdivision.id}>{subdivision.label}</MenuItem>
                                 })}
                             </Select>
                         </Grid>
@@ -114,7 +113,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                                 onChange={(e) => setShippingOption(e.target.value)}
                             >
                                 {options.map((option) => {
-                                    <MenuItem key={option.id} value={option.id}>{option.label}</MenuItem>
+                                    return <MenuItem key={option.id} value={option.id}>{option.label}</MenuItem>
                                 })}
                             </Select>
                         </Grid>

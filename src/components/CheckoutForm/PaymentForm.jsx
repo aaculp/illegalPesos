@@ -10,40 +10,52 @@ import Review from "./Review";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
-const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptureCheckout }) => {
+const PaymentForm = ({
+    checkoutToken,
+    nextStep,
+    backStep,
+    shippingData,
+    onCaptureCheckout,
+}) => {
     const handleSubmit = async (e, elements, stripe) => {
         e.preventDefault();
         if (!stripe || !elements) return;
 
         const cardElement = elements.getElement(CardElement);
 
-        const {error, paymentMethod} = await stripe.createPaymentMethod({ type: 'card', card: cardElement })
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: "card",
+            card: cardElement,
+        });
 
-        if(error) {
-            console.log(error)
+        if (error) {
+            console.log(error);
         } else {
             const orderData = {
                 line_items: checkoutToken.live.line_items,
-                customer: { firstName: shippingData.firstName, lastName: shippingData.lastName, email: shippingData.email },
-                shipping: { 
-                    name:'Primary Shipping', 
-                    street: shippingData.address1, 
+                customer: {
+                    firstName: shippingData.firstName,
+                    lastName: shippingData.lastName,
+                    email: shippingData.email,
+                },
+                shipping: {
+                    name: "Primary Shipping",
+                    street: shippingData.address1,
                     aptNum: shippingData.address2,
-                    shipping_city: shippingData.city, 
+                    shipping_city: shippingData.city,
                     shipping_state: shippingData.state,
                     postalZipCode: shippingData.zipCode,
-                    country: shippingData.shippingCountry
+                    country: shippingData.shippingCountry,
                 },
                 fulfillment: { shipping_method: shippingData.shippingOption },
-                payment: { 
-                    gateway: 'stripe', 
-                    stripe: {payment_method_id: paymentMethod.id} 
-                }
-            }
+                payment: {
+                    gateway: "stripe",
+                    stripe: { payment_method_id: paymentMethod.id },
+                },
+            };
+            onCaptureCheckout(checkoutToken.id, orderData);
+            nextStep();
         }
-
-        onCaptureCheckout(checkoutToken.id, orderData);
-        nextStep()
     };
 
     return (
