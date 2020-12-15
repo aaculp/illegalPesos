@@ -24,6 +24,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({});
+    const [isFinished, setIsFinished] = useState(false);
 
     useEffect(() => {
         const generateToken = async () => {
@@ -37,6 +38,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         generateToken();
     }, [cart]);
 
+    const timeout = () => {
+        setTimeout(() => {
+            setIsFinished(true)
+        }, 3000)
+    }
+
     let Confirmation = () => order.customer ? (
         <>
         <div>
@@ -46,6 +53,15 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             <br />
             <Button component={Link} to='/' variant='outlined' type="button">Back to Home</Button>
         </div>
+        </>
+    ) : isFinished ? (
+        <>
+            <div>
+                <Typography variant='h5'>Thank you for your purchase</Typography>
+                <Divider className={classes.divider} />
+                <br />
+                <Button component={Link} to='/' variant='outlined' type="button">Back to Home</Button>
+            </div>
         </>
     ) : (
         <div className={classes.spinner}>
@@ -63,7 +79,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const Form = () => (activeStep === 0 
         ? <AddressForm checkoutToken={checkoutToken} next={next} /> 
-        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} />);
+        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeout={timeout} />);
 
     const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1 )
     const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1 )

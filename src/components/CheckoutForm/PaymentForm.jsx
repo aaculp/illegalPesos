@@ -16,6 +16,7 @@ const PaymentForm = ({
     backStep,
     shippingData,
     onCaptureCheckout,
+    timeout
 }) => {
     const handleSubmit = async (e, elements, stripe) => {
         e.preventDefault();
@@ -54,6 +55,7 @@ const PaymentForm = ({
                 },
             };
             onCaptureCheckout(checkoutToken.id, orderData);
+            timeout();
             nextStep();
         }
     };
@@ -73,26 +75,12 @@ const PaymentForm = ({
                         >
                             <CardElement />
                             <br /> <br />
-                            <div
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                }}
-                            >
+                            <div style={{ display: "flex", justifyContent: "space-between"}}>
                                 <Button variant="outlined" onClick={backStep}>
                                     Back
                                 </Button>
-                                <Button
-                                    variant="contained"
-                                    type="Submit"
-                                    disabled={!stripe}
-                                    color="primary"
-                                >
-                                    Pay{" "}
-                                    {
-                                        checkoutToken.live.subtotal
-                                            .formatted_with_symbol
-                                    }
+                                <Button variant="contained" type="Submit" disabled={!stripe} color="primary">
+                                    Pay{checkoutToken.live.subtotal.formatted_with_symbol}
                                 </Button>
                             </div>
                         </form>

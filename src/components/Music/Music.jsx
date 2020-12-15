@@ -3,7 +3,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 export default function MusicSlider() {
   return (
-    <div style={{ textAlign: "center", width: "100%", paddingTop: '5em'}}>
+    <div style={{ textAlign: "center", width: "100%", padding: '5em 0'}}>
       <span> Latest Mixes </span>
       <Carousel>
         <Carousel.Item>

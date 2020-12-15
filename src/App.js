@@ -63,7 +63,6 @@ function App() {
 
     return (
         <Router>
-            {/* <CssBaseline /> */}
             <div className="App">
                 <NavBar products={products} totalItems={cart.total_items} />
                 <Music />
