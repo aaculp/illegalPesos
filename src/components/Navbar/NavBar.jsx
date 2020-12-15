@@ -22,8 +22,8 @@ const NavBar = ({ products, totalItems }) => {
   const location = useLocation();
 
   const handleCartPress = () => {
-    console.log(products);
   };
+
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="secondary">
@@ -40,7 +40,7 @@ const NavBar = ({ products, totalItems }) => {
           {location.pathname === '/' && (
             <div className={classes.button}>
             <IconButton component={Link} to='/cart' aria-label="show cart items" color="inherit">
-              <Badge badgeContent={totalItems} color="primary" onClick={() => handleCartPress()}>
+              <Badge badgeContent={totalItems} color="primary">
                 <ShoppingCart />
               </Badge>
             </IconButton>

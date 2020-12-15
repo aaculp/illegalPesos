@@ -8,11 +8,12 @@ import {
     Typography,
     MenuItem,
 } from "@material-ui/core";
+import { Link } from 'react-router-dom';
 import { useForm, FormProvider } from "react-hook-form";
 import { commerce } from "../lib/commerce";
 import FormInput from "./CustomTextField";
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
     const methods = useForm();
     const [shippingCountries, setShippingCountries] = useState([]);
     const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -22,11 +23,15 @@ const AddressForm = ({ checkoutToken }) => {
     const [shippingSubdivision, setShippingSubdivision] = useState("");
     const [shippingOption, setShippingOption] = useState("");
 
+    const countries = Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name }));
+    const subdivisons = Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name }));
+    const options = shippingOptions.map((shipOption) => ({id: shipOption.id, label: `${shipOption.description} - (${shipOption.price.formatted_with_symbol})`}) )
+
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
+        console.log("Countries", countries)
         setShippingCountries(countries);
         setShippingCountry(Object.keys(countries)[0]);
-        console.log(countries);
     };
 
     const fetchSubdivisions = async (countryCode) => {
@@ -40,10 +45,6 @@ const AddressForm = ({ checkoutToken }) => {
         setShippingOptions(options)
         setShippingOption(options[0].id)
     };
-
-    const countries = Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name }));
-    const subdivisons = Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name }));
-    const options = shippingOptions.map((shipOption) => ({id: shipOption.id, label: `${shipOption.description} - (${shipOption.price.formatted_with_symbol})`}) )
 
     useEffect(() => {
         fetchShippingCountries(checkoutToken.id);
@@ -63,7 +64,7 @@ const AddressForm = ({ checkoutToken }) => {
                 Shipping Address
             </Typography>
             <FormProvider {...methods}>
-                <form onSubmit="">
+                <form onSubmit={methods.handleSubmit((data) =>  next({ ...data, shippingCountry, shippingSubdivision, shippingOption}))}>
                     <Grid container spacing={3}>
                         <FormInput
                             required
@@ -82,16 +83,16 @@ const AddressForm = ({ checkoutToken }) => {
                         <FormInput required name="state" label="State" />
                         <FormInput required name="zipCode" label="Zip Code" />
                         <Grid item xs={12} sm={6}>
-                        <InputLabel>Shipping Country</InputLabel>
-                        <Select
-                            value={shippingCountry}
-                            fullWidth
-                            onChange={(e) => setShippingCountry(e.target.value)}
-                        >
-                            {countries.map((country) => {
-                                <MenuItem key={country.id} value={country.id}>{country.label}</MenuItem>
-                            })}
-                        </Select>
+                            <InputLabel>Shipping Country</InputLabel>
+                            <Select
+                                value={shippingCountry}
+                                fullWidth
+                                onChange={(e) => setShippingCountry(e.target.value)}
+                            >
+                                {countries.map((country) => {
+                                    <MenuItem key={country.id} value={country.id}>{country.label}</MenuItem>
+                                })}
+                            </Select>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Shipping Subdivision</InputLabel>
@@ -118,6 +119,11 @@ const AddressForm = ({ checkoutToken }) => {
                             </Select>
                         </Grid>
                     </Grid>
+                    <br />
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <Button component={Link} to='/cart' variant="outlined">Back to Cart</Button>
+                        <Button type="Submit" variant="contained" color="primary">Next</Button>
+                    </div>
                 </form>
             </FormProvider>
         </>
