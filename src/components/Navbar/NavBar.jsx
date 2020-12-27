@@ -6,12 +6,10 @@ import {
   Toolbar,
   IconButton,
   Badge,
-  MenuItem,
-  Menu,
   Typography,
 } from "@material-ui/core";
 
-import { AddShoppingCart, ShoppingCart } from "@material-ui/icons";
+import { ShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
 
@@ -25,7 +23,7 @@ const NavBar = ({ products, totalItems }) => {
 
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar} color="secondary">
+      <AppBar position="fixed" className={classes.appBar} color="secondary" style={{backgroundColor: '#39FF14', color: '#292A33'}}>
         <Toolbar>
           <Typography component={Link} to='/' variant="h6" color="inherit" className={classes.title}>
             <img

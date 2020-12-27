@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { CssBaseline } from "@material-ui/core";
 import { Store, NavBar, Music, Cart, Checkout } from "./components";
 import { commerce } from "./components/lib/commerce.js";
 import "./css/App.css";
@@ -65,7 +64,7 @@ function App() {
         <Router>
             <div className="App">
                 <NavBar products={products} totalItems={cart.total_items} />
-                <Music />
+                {/* <Music /> */}
                 <Switch>
                     <Route exact path="/">
                         <Store
