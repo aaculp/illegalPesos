@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
     Card,
     CardMedia,
@@ -17,7 +17,7 @@ const StoreItems = ({ product, onAddToCart }) => {
     return (
         <Card>
             {/* <img src={img} style={{ width: "100%", margin: "1em 0" }} /> */}
-            <CardMedia className={classes.media} image={product.media.source} title={product.name} style={{marginTop: "5px"}} />
+            <CardMedia className={classes.media} image={product.media.source} title={product.name} />
             <CardContent>
                 <div className={classes.cardContent}>
                     <Typography variant="h6" gutterBottom>

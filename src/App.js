@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Store, NavBar, Music, Cart, Checkout } from "./components";
+import {
+    Store,
+    NavBar,
+    Music,
+    MusicSlider,
+    Cart,
+    Checkout,
+} from "./components";
 import { commerce } from "./components/lib/commerce.js";
 import "./css/App.css";
 
@@ -9,7 +16,7 @@ function App() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         fetchProducts();
@@ -52,11 +59,14 @@ function App() {
 
     const hadleCaptureCheckout = async (checkoutTokenId, newOrder) => {
         try {
-            const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
+            const incomingOrder = await commerce.checkout.capture(
+                checkoutTokenId,
+                newOrder
+            );
             setOrder(incomingOrder);
             refreshCart();
         } catch (error) {
-            setErrorMessage(error.data.error.message)
+            setErrorMessage(error.data.error.message);
         }
     };
 
@@ -65,6 +75,7 @@ function App() {
             <div className="App">
                 <NavBar products={products} totalItems={cart.total_items} />
                 {/* <Music /> */}
+                <MusicSlider id="moNav" />
                 <Switch>
                     <Route exact path="/">
                         <Store
@@ -81,9 +92,20 @@ function App() {
                         />
                     </Route>
                     <Route exact path="/checkout">
-                        <Checkout cart={cart} order={order} onCaptureCheckout={hadleCaptureCheckout} error={errorMessage} />
+                        <Checkout
+                            cart={cart}
+                            order={order}
+                            onCaptureCheckout={hadleCaptureCheckout}
+                            error={errorMessage}
+                        />
                     </Route>
                 </Switch>
+                <div id="footerNav" className="navLeft">
+                    Developed by:
+                    <span>A</span>
+                    <span className="logoSpin">A</span>
+                    <span>C</span>
+                </div>
             </div>
         </Router>
     );

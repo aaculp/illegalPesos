@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import MusicSlider from '../Music/MusicSlider'
 import {
   AppBar,
   Toolbar,
@@ -13,18 +13,15 @@ import { ShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
 
-const NavBar = ({ products, totalItems }) => {
+const NavBar = ({ totalItems }) => {
   const classes = useStyles();
 
   const location = useLocation();
 
-  const handleCartPress = () => {
-  };
-
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar} color="secondary" style={{backgroundColor: '#39FF14', color: '#292A33'}}>
-        <Toolbar>
+      <AppBar position="fixed" className={classes.appBar} color="secondary" style={{backgroundColor: '#216C2A', color: '#292A33'}}>
+        <Toolbar className="navBarContainer">
           <Typography component={Link} to='/' variant="h6" color="inherit" className={classes.title}>
             <img
               src=""
@@ -33,7 +30,7 @@ const NavBar = ({ products, totalItems }) => {
               className={classes.image}
             />
           </Typography>
-          <div className={classes.grow} />
+          <MusicSlider id="dtNav" />
           {location.pathname === '/' && (
             <div className={classes.button}>
             <IconButton component={Link} to='/cart' aria-label="show cart items" color="inherit">

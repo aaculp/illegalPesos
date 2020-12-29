@@ -8,7 +8,6 @@ const Store = ({ products, onAddToCart }) => {
 
     return (
         <main className="storeContent">
-            <div className={classes.toolbar} />
             <Grid container justify="center" spacing={1}>
                 {products.map((product) => {
                     return (
