@@ -69,14 +69,14 @@ function App() {
             setErrorMessage(error.data.error.message);
         }
     };
-
+    
     return (
         <Router>
             <div className="App">
                 <NavBar products={products} totalItems={cart.total_items} />
                 {/* <Music /> */}
                 <MusicSlider id="moNav" />
-                <Switch>
+                <Switch style={{ height: "75vh" }}>
                     <Route exact path="/">
                         <Store
                             products={products}
@@ -100,11 +100,14 @@ function App() {
                         />
                     </Route>
                 </Switch>
-                <div id="footerNav" className="navLeft">
-                    Developed by:
-                    <span>A</span>
-                    <span className="logoSpin">A</span>
-                    <span>C</span>
+                <hr style={{ backgroundColor: "#fcfcfa" }} />
+                <div id="footerNav" className="mainFooter" onClick={()=> window.open("https://www.instagram.com/a_a_ronculp", "_blank")}>
+                    <span style={{ fontFamily: "Jura" }}>Developed by:</span>
+                    <span className="logoFrame">
+                        <span style={{ fontFamily: "Ewert" }}>A</span>
+                        <span style={{ fontFamily: "Ewert" }} className="logoSpin">A</span>
+                        <span style={{ fontFamily: "Ewert" }}>C</span>
+                    </span>
                 </div>
             </div>
         </Router>

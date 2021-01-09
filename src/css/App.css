@@ -18,15 +18,22 @@ html {
   @media only screen and (min-width: 1280px) {} 
 */
 
+@media only screen and (max-width: 599px) {
+    .App .storeContent {
+        height: unset !important;
+    }
+}
+
 @media only screen and (max-width: 600px) {
-    .App #dtNav {
+    .App #dtNav.sliderContainer {
         display: none;
     }
 
-    .App #moNav {
+    .App #moNav.sliderContainer {
         display: flex;
         margin: 80px 0 30px 0;
         width: 100vw;
+        height: 15vh;
     }
 
     .App .left-arrow {
@@ -41,9 +48,35 @@ html {
         margin-top: 0 !important;
     }
 
-    .navLeft {
-        min-width: 40%;
+    .mainFooter {
+        max-width: 50%;
     }
+    
+    .logoFrame {
+        width: 25%;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .App #dtNav.sliderContainer {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .App #moNav.sliderContainer {
+        display: none;
+    }
+
+    .mainFooter {
+        max-width: 50%;
+    }
+    
+    .logoFrame {
+        width: 25%;
+    }
+    
 }
 
 @media only screen and (max-width: 959px) {
@@ -59,15 +92,41 @@ html {
         flex-direction: column;
         align-items: center;
     }
+
+    .mainFooter {
+        max-width: 50%;
+    }
+    
+    .logoFrame {
+        width: 25%;
+    }
 }
 
 @media only screen and (min-width: 960px) {
+    
+    .App .companyButton,
+    .App .cartButton {
+        width: 20%;
+    }
+
+    .App .sliderContainer {
+        width: 80%;
+    }
+
     .MuiGrid-item.productContainer {
         width: 20%;
     }
 
     .App .storeContent {
         padding: 0 50px;
+    }
+
+    .mainFooter {
+        max-width: 25%;
+    }
+    
+    .logoFrame {
+        width: 40%;
     }
 }
 
@@ -90,6 +149,16 @@ html {
     width: 100%;
 }
 
+.App .companyButton,
+.App .cartButton {
+    flex-grow: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+}
+
 .App .navBarContainer {
     display: flex;
     justify-content: space-around;
@@ -99,7 +168,6 @@ html {
     position: relative;
     display: flex;
     justify-content: space-around;
-    width: 75%;
 }
 
 .App .iframes {
@@ -158,7 +226,8 @@ html {
 }
 
 .App .storeContent {
-    margin-top: 125px;
+    margin-top: 170px;
+    height: 95%;
 }
 
 .App .MuiGrid-container {
@@ -192,21 +261,32 @@ html {
     background-color: #216c2a;
 }
 
-.navLeft {
+.mainFooter {
     font-family: "Ewert", cursive;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     margin: 0 auto;
-    max-width: 20%;
-    margin: 50px auto;
+    height: 5%;
+}
+
+.mainFooter:hover {
+    cursor: pointer;
+}
+
+.logoFrame {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .logoSpin {
     animation: logoSpin 2s infinite linear;
     -webkit-animation: logoSpin 2s infinite linear;
 }
+
 @keyframes logoSpin {
     from {
         transform: rotate(0deg);

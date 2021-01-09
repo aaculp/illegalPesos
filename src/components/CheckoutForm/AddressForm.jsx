@@ -7,7 +7,7 @@ import FormInput from "./CustomTextField";
 
 const AddressForm = ({ checkoutToken, next }) => {
     const methods = useForm();
-    const [setShippingCountries] = useState([]);
+    const [shippingCountries, setShippingCountries] = useState([]);
     const [setShippingSubdivisions] = useState([]);
     const [setShippingOptions] = useState([]);
     // Singluar

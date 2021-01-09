@@ -16,9 +16,11 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     display: "flex",
     textDecoration: "none",
+    textAlign: 'center'
   },
   image: {
     marginRight: "10px",
+    height: "100%"
   },
   menuButton: {
     marginRight: theme.spacing(2),

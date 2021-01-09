@@ -8,7 +8,7 @@ const Cart = ({ cart, handleUpdateCartNum, handleRemoveCartItem, handleEmptyCart
   const classes = useStyles();
 
   const EmptyCart = () => (
-    <Typography variant="subtitle1">
+    <Typography variant="subtitle1" className={classes.empytCart}>
       <Link to='/' className={classes.link}>Hey, add something to your cart!</Link>
     </Typography>
   );
@@ -39,7 +39,7 @@ const Cart = ({ cart, handleUpdateCartNum, handleRemoveCartItem, handleEmptyCart
   );
 
   return (
-    <Container>
+    <Container style={{height: "75vh"}}>
       <div className={classes.toolbar} />
       <Typography className={classes.title} variant="h3" gutterBottom>
         Your Shopping Cart
