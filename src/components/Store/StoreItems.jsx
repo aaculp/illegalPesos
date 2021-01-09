@@ -15,7 +15,6 @@ const StoreItems = ({ product, onAddToCart }) => {
 
     return (
         <Card>
-            {/* <img src={img} style={{ width: "100%", margin: "1em 0" }} /> */}
             <CardMedia className={classes.media} image={product.media.source} title={product.name} />
             <CardContent>
                 <div className={classes.cardContent}>

@@ -7,6 +7,186 @@ html {
     background-color: #292a33;
 }
 
+.App {
+    background-color: #292a33;
+    color: #fcfcfa;
+    height: 100vh;
+    width: 100%;
+}
+
+.AppHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* NAVBAR STYLES */
+.App .navBarContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.App .companyButton,
+.App .cartButton {
+    flex-grow: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* MUSIC SLIDER STYLES */
+
+.App .sliderContainer {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.App .iframes {
+    display: flex;
+}
+
+.App .right-arrow,
+.App .left-arrow {
+    position: absolute;
+    background-color: #fcfcfa;
+    color: rgba(255, 60, 0, 1);
+    cursor: pointer;
+    user-select: none;
+    clip-path: circle(49%);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    z-index: 1;
+}
+
+.App .right-arrow {
+    right: 5%;
+}
+
+.App .left-arrow {
+    left: 5%;
+}
+
+.App .slide {
+    width: 75%;
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+
+.App .slide.active {
+    width: 75%;
+    opacity: 1;
+    transition-duration: 1s ease;
+    transform: scale(1);
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    display: flex !important;
+    justify-content: center;
+}
+
+.App .carousel-control-next,
+.App .carousel-control-prev {
+    width: 10vw;
+}
+
+.App .carousel-indicators {
+    top: 100%;
+}
+
+/* FILTER STYLES */
+.App .product-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 1em 0;
+}
+
+/* STORE STYLES */
+.App .storeContent {
+    margin-top: 170px;
+    height: 95%;
+}
+
+/* OVERRIDE material-ui STYLES */
+.App .MuiGrid-container {
+    justify-content: center;
+}
+
+.MuiCard-root {
+    height: 100%;
+}
+
+.App .MuiContainer-maxWidthLg {
+    max-width: unset;
+    background-color: #292a33;
+}
+
+.App .makeStyles-cardDetails-15 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #292a33;
+    margin-top: unset;
+    width: 100%;
+    padding: 5% 5%;
+}
+
+.MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    background-color: #292a33;
+}
+
+.App .MuiPaper-root {
+    color: #292a33;
+    background-color: #216c2a;
+}
+
+/* FOOTER STYLES */
+.mainFooter {
+    font-family: "Ewert", cursive;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    height: 5%;
+}
+
+.mainFooter:hover {
+    cursor: pointer;
+}
+
+.logoFrame {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logoSpin {
+    animation: logoSpin 2s infinite linear;
+    -webkit-animation: logoSpin 2s infinite linear;
+}
+
+@keyframes logoSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
 /* breakpoints by material-ui ...
   sm: max 600
   md: 601-959
@@ -81,7 +261,7 @@ html {
 
 @media only screen and (max-width: 959px) {
     .App .storeContent {
-        padding: 0 25px;
+        padding: 0 5%;
     }
 
     .MuiGrid-item.productContainer {
@@ -127,172 +307,5 @@ html {
     
     .logoFrame {
         width: 40%;
-    }
-}
-
-.block {
-    display: block;
-}
-
-.App {
-    background-color: #292a33;
-    color: #fcfcfa;
-    height: 100vh;
-    width: 100%;
-}
-
-.AppHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.App .companyButton,
-.App .cartButton {
-    flex-grow: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    text-align: center;
-}
-
-.App .navBarContainer {
-    display: flex;
-    justify-content: space-around;
-}
-
-.App .sliderContainer {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-}
-
-.App .iframes {
-    display: flex;
-}
-
-.App .right-arrow,
-.App .left-arrow {
-    position: absolute;
-    background-color: #fcfcfa;
-    color: rgba(255, 60, 0, 1);
-    cursor: pointer;
-    user-select: none;
-    clip-path: circle(49%);
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2.5rem;
-    z-index: 1;
-}
-
-.App .right-arrow {
-    right: 5%;
-}
-
-.App .left-arrow {
-    left: 5%;
-}
-
-.App .slide {
-    width: 75%;
-    opacity: 0;
-    transition-duration: 1s ease;
-}
-
-.App .slide.active {
-    width: 75%;
-    opacity: 1;
-    transition-duration: 1s ease;
-    transform: scale(1);
-}
-
-.carousel-item-next,
-.carousel-item-prev,
-.carousel-item.active {
-    display: flex !important;
-    justify-content: center;
-}
-
-.App .carousel-control-next,
-.App .carousel-control-prev {
-    width: 10vw;
-}
-
-.App .carousel-indicators {
-    top: 100%;
-}
-
-.App .storeContent {
-    margin-top: 170px;
-    height: 95%;
-}
-
-.App .MuiGrid-container {
-    justify-content: center;
-}
-
-.MuiCard-root {
-    height: 100%;
-}
-
-.App .MuiContainer-maxWidthLg {
-    max-width: unset;
-    background-color: #292a33;
-}
-
-.App .makeStyles-cardDetails-15 {
-    display: flex;
-    justify-content: space-between;
-    background-color: #292a33;
-    margin-top: unset;
-    width: 100%;
-    padding: 5% 5%;
-}
-
-.MuiGrid-spacing-xs-4 > .MuiGrid-item {
-    background-color: #292a33;
-}
-
-.App .MuiPaper-root {
-    color: #292a33;
-    background-color: #216c2a;
-}
-
-.mainFooter {
-    font-family: "Ewert", cursive;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 0 auto;
-    height: 5%;
-}
-
-.mainFooter:hover {
-    cursor: pointer;
-}
-
-.logoFrame {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.logoSpin {
-    animation: logoSpin 2s infinite linear;
-    -webkit-animation: logoSpin 2s infinite linear;
-}
-
-@keyframes logoSpin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
     }
 }

@@ -17,7 +17,7 @@ function App() {
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
-
+    
     useEffect(() => {
         fetchProducts();
         fetchCart();
@@ -69,39 +69,26 @@ function App() {
             setErrorMessage(error.data.error.message);
         }
     };
-    
+
     return (
         <Router>
             <div className="App">
-                <NavBar products={products} totalItems={cart.total_items} />
+                <NavBar totalItems={cart.total_items} />
                 {/* <Music /> */}
-                <MusicSlider id="moNav" />
+                {/* <MusicSlider id="moNav" /> */}
                 <Switch style={{ height: "75vh" }}>
                     <Route exact path="/">
-                        <Store
-                            products={products}
-                            onAddToCart={handleAddToCart}
-                        />
+                        <Store products={products} onAddToCart={handleAddToCart} />
                     </Route>
                     <Route exact path="/cart">
-                        <Cart
-                            cart={cart}
-                            handleUpdateCartNum={handleUpdateCartNum}
-                            handleRemoveCartItem={handleRemoveCartItem}
-                            handleEmptyCart={handleEmptyCart}
-                        />
+                        <Cart cart={cart} handleUpdateCartNum={handleUpdateCartNum} handleRemoveCartItem={handleRemoveCartItem} handleEmptyCart={handleEmptyCart} />
                     </Route>
                     <Route exact path="/checkout">
-                        <Checkout
-                            cart={cart}
-                            order={order}
-                            onCaptureCheckout={hadleCaptureCheckout}
-                            error={errorMessage}
-                        />
+                        <Checkout cart={cart} order={order} onCaptureCheckout={hadleCaptureCheckout} error={errorMessage} />
                     </Route>
                 </Switch>
                 <hr style={{ backgroundColor: "#fcfcfa" }} />
-                <div id="footerNav" className="mainFooter" onClick={()=> window.open("https://www.instagram.com/a_a_ronculp", "_blank")}>
+                <div id="footerNav" className="mainFooter" onClick={() => window.open("https://www.instagram.com/a_a_ronculp", "_blank")}>
                     <span style={{ fontFamily: "Jura" }}>Developed by:</span>
                     <span className="logoFrame">
                         <span style={{ fontFamily: "Ewert" }}>A</span>
