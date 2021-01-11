@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Filter = ({ products, productBrand, productSize, filterBrand, filterSize }) => {
+const Filter = ({ products, productBrand, productSize, productCount, filterBrand, filterSize }) => {
     return (
         <div className="product-filters" style={{ marginTop: '250px' }}>
             <div className="filter-sort">
@@ -16,7 +16,7 @@ const Filter = ({ products, productBrand, productSize, filterBrand, filterSize }
                 </select>
             </div>
             <div className="filter-size">
-                Filter:{" "}
+            Filter:{" "}
                 <select value={productSize} onChange={filterSize}>
                     <option value="ALL">ALL</option>
                     <option value="XS">XS</option>
@@ -28,8 +28,8 @@ const Filter = ({ products, productBrand, productSize, filterBrand, filterSize }
                     <option value="3XL">3X</option>
                 </select>
             </div>
-            <div className="filter-results">{products.length} Products</div>
-        </div>
+            <div className="filter-results">{productCount} Products</div>
+        </div >
     );
 };
 

@@ -39,7 +39,7 @@ const Cart = ({ cart, handleUpdateCartNum, handleRemoveCartItem, handleEmptyCart
   );
 
   return (
-    <Container style={{height: "75vh"}}>
+    <Container style={{height: "95%"}}>
       <div className={classes.toolbar} />
       <Typography className={classes.title} variant="h3" gutterBottom>
         Your Shopping Cart

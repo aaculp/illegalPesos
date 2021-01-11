@@ -30,7 +30,7 @@ const NavBar = ({ totalItems }) => {
               className={classes.image}
             />
           </Typography>
-          <MusicSlider id="dtNav" />
+          {/* <MusicSlider id="dtNav" /> */}
           {location.pathname === '/' && (
             <div className="cartButton">
               <IconButton component={Link} to='/cart' aria-label="show cart items" color="inherit">

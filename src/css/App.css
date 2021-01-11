@@ -117,13 +117,23 @@ html {
     height: 95%;
 }
 
+.MuiCard-root {
+    height: 100%;
+    margin: 1em 0;
+}
+
+.App .productContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
 /* OVERRIDE material-ui STYLES */
 .App .MuiGrid-container {
     justify-content: center;
-}
-
-.MuiCard-root {
-    height: 100%;
 }
 
 .App .MuiContainer-maxWidthLg {
@@ -200,7 +210,11 @@ html {
 
 @media only screen and (max-width: 599px) {
     .App .storeContent {
-        height: unset !important;
+        height: unset;
+    }
+    
+    .MuiCard-root {
+        width: 100% !important;
     }
 }
 
@@ -228,6 +242,10 @@ html {
         margin-top: 0 !important;
     }
 
+    .MuiCard-root {
+        width: 100%;
+    }
+
     .mainFooter {
         max-width: 50%;
     }
@@ -249,6 +267,14 @@ html {
         display: none;
     }
 
+    .App .storeContent {
+       height: unset;
+    }
+
+    .MuiCard-root {
+        width: 48%;
+    }
+
     .mainFooter {
         max-width: 50%;
     }
@@ -262,6 +288,10 @@ html {
 @media only screen and (max-width: 959px) {
     .App .storeContent {
         padding: 0 5%;
+    }
+
+    .MuiCard-root {
+        width: 48%;
     }
 
     .MuiGrid-item.productContainer {
@@ -291,6 +321,41 @@ html {
 
     .App .sliderContainer {
         width: 80%;
+    }
+
+    .MuiCard-root {
+        width: 30%;
+    }
+
+    .MuiGrid-item.productContainer {
+        width: 20%;
+    }
+
+    .App .storeContent {
+        padding: 0 50px;
+    }
+
+    .mainFooter {
+        max-width: 25%;
+    }
+    
+    .logoFrame {
+        width: 40%;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .App .companyButton,
+    .App .cartButton {
+        width: 20%;
+    }
+
+    .App .sliderContainer {
+        width: 80%;
+    }
+
+    .MuiCard-root {
+        width: 30%;
     }
 
     .MuiGrid-item.productContainer {
