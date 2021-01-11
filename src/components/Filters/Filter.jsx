@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 
-const Filter = ({ products, productBrand, productSize, productCount, filterBrand, filterSize }) => {
+const Filter = ({ products, productFilter, filterProducts, productCount }) => {
     return (
         <div className="product-filters" style={{ marginTop: '250px' }}>
             <div className="filter-sort">
                 Brand:{" "}
-                <select value={productBrand} onChange={filterBrand}>
+                <select value={productFilter} onChange={filterProducts}>
                     <option value="All">All</option>
                     <option value="Gucci">Gucci</option>
                     <option value="VLone">VLone</option>
@@ -17,8 +17,8 @@ const Filter = ({ products, productBrand, productSize, productCount, filterBrand
             </div>
             <div className="filter-size">
             Filter:{" "}
-                <select value={productSize} onChange={filterSize}>
-                    <option value="ALL">ALL</option>
+                <select value={productFilter} onChange={filterProducts}>
+                    <option value="All">All</option>
                     <option value="XS">XS</option>
                     <option value="S">S</option>
                     <option value="M">M</option>

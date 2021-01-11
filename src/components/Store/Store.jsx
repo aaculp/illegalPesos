@@ -4,8 +4,7 @@ import Filter from "../Filters/Filter";
 
 const Store = ({ products, onAddToCart }) => {
     const [storeItems, setStoreItems] = useState(products);
-    const [productSize, setProductSize] = useState("");
-    const [productBrand, setProductBrand] = useState("");
+    const [productFilter, setProductFilter] = useState("");
     const [productCount, setProductCount] = useState(0);
 
     useEffect(() => {
@@ -21,8 +20,8 @@ const Store = ({ products, onAddToCart }) => {
         })
     }
 
-    const filterBrand = (event) => {
-        setProductBrand(event.target.value)
+    const filterProducts = (event) => {
+        setProductFilter(event.target.value)
 
         let filteredProduct = products.filter(product => product.name.includes(event.target.value));
         setStoreItems(filteredProduct);
@@ -34,23 +33,9 @@ const Store = ({ products, onAddToCart }) => {
         };
     }
 
-    const filterSize = (event) => {
-        setProductSize(event.target.value)
-
-        let filteredSize = products.filter(product => product.name.includes(event.target.value));
-        setStoreItems(filteredSize);
-        setProductCount(filteredSize.length)
-
-
-        if (event.target.value === "All") {
-            setStoreItems(products)
-            setProductCount(products.length)
-        };
-    }
-
     return (
         <main className="storeContent">
-            <Filter products={products} productSize={productSize} productBrand={productBrand} productCount={productCount} filterBrand={filterBrand} filterSize={filterSize} />
+            <Filter products={products} productFilter={productFilter} filterProducts={filterProducts} productCount={productCount} />
             <div className="productContainer">
                 {renderProducts()}
             </div>
