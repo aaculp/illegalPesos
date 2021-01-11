@@ -7,6 +7,10 @@ html {
     background-color: #292a33;
 }
 
+a:hover {
+    color: #ff3c00;
+}
+
 .App {
     background-color: #292a33;
     color: #fcfcfa;
@@ -39,7 +43,6 @@ html {
 }
 
 /* MUSIC SLIDER STYLES */
-
 .App .sliderContainer {
     position: relative;
     display: flex;
@@ -131,9 +134,38 @@ html {
     width: 100%;
 }
 
+/* FILLED CART STYLES */
+
+.App .filledCartContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 95%;
+}
+
+.App .filledCartItemContainter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.App .payCartContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 /* OVERRIDE material-ui STYLES */
 .App .MuiGrid-container {
-    justify-content: center;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .App .MuiContainer-maxWidthLg {
@@ -144,19 +176,29 @@ html {
 .App .makeStyles-cardDetails-15 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #292a33;
     margin-top: unset;
     width: 100%;
     padding: 5% 5%;
+    height: 18%;
 }
 
 .MuiGrid-spacing-xs-4 > .MuiGrid-item {
     background-color: #292a33;
+    flex-grow: unset;
+    max-width: unset;
+    flex-basis: unset;
+    justify-content: center;
+    display: flex;
 }
 
 .App .MuiPaper-root {
     color: #292a33;
     background-color: #216c2a;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* FOOTER STYLES */
@@ -269,6 +311,10 @@ html {
 
     .App .storeContent {
        height: unset;
+    }
+
+    .App .payCartContainer {
+        margin-top: 150px;
     }
 
     .MuiCard-root {

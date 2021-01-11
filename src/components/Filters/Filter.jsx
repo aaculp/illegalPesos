@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 const Filter = ({ products, productFilter, filterProducts, productCount }) => {
     return (
-        <div className="product-filters" style={{ marginTop: '250px' }}>
+        <div className="product-filters">
             <div className="filter-sort">
                 Brand:{" "}
                 <select value={productFilter} onChange={filterProducts}>

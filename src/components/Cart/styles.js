@@ -25,7 +25,8 @@ export default makeStyles((theme) => ({
     display: "flex",
     marginTop: "10%",
     width: "100%",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
+    maxWidth: "75%"
   },
   emptyCart: {
     height: "95%"

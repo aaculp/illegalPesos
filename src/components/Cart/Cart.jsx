@@ -17,20 +17,20 @@ const Cart = ({ cart, handleUpdateCartNum, handleRemoveCartItem, handleEmptyCart
 
   const FilledCart = () => (
     <>
-      <Grid container spacing={4}>
+      <div className="filledCartContainer">
         {cart.line_items.map((item) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
-            <CartItem 
-              item={item} 
-              onHandleUpdateCartNum={handleUpdateCartNum} 
+          <div className="filledCartItemContainter" key={item.id}>
+            <CartItem
+              item={item}
+              onHandleUpdateCartNum={handleUpdateCartNum}
               onHandleRemoveCartItem={handleRemoveCartItem}
             />
-          </Grid>
+          </div>
         ))}
-      </Grid>
-      <div className={classes.cardDetails}>
+      </div>
+      <div className="cartPayContainer">
         <Typography variant="h4"> Subtotal: {cart.subtotal.formatted_with_symbol} </Typography>
-        <div>
+        <div className="cartButtonContainer">
           <Button className={classes.emptyButton} size="large" variant="contained" color="secondary" onClick={handleEmptyCart}> Empty Cart </Button>
           <Button component={Link} to='/checkout' className={classes.checkoutButton} size="large" variant="contained" color="primary"> Checkout </Button>
         </div>
@@ -39,8 +39,7 @@ const Cart = ({ cart, handleUpdateCartNum, handleRemoveCartItem, handleEmptyCart
   );
 
   return (
-    <Container style={{height: "95%"}}>
-      <div className={classes.toolbar} />
+    <Container className="payCartContainer">
       <Typography className={classes.title} variant="h3" gutterBottom>
         Your Shopping Cart
       </Typography>
