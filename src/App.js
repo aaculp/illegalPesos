@@ -17,7 +17,7 @@ function App() {
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
-    
+
     useEffect(() => {
         fetchProducts();
         fetchCart();
@@ -74,8 +74,7 @@ function App() {
         <Router>
             <div className="App">
                 <NavBar totalItems={cart.total_items} />
-                {/* <Music /> */}
-                {/* <MusicSlider id="moNav" /> */}
+                <MusicSlider id="moNav" />
                 <Switch style={{ height: "75vh" }}>
                     <Route exact path="/">
                         <Store products={products} onAddToCart={handleAddToCart} />
