@@ -13,7 +13,8 @@ const Store = ({ products, onAddToCart }) => {
     }, [products])
 
     const renderProducts = () => {
-        return storeItems.map((product, i) => {
+        return storeItems.filter(item => item.quantity > 0).map((product, i) => {
+            console.log(storeItems)
             return (
                 <StoreItems key={i} product={product} onAddToCart={onAddToCart} />
             );

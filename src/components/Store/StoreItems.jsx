@@ -14,7 +14,7 @@ const StoreItems = ({ product, onAddToCart }) => {
     const classes = useStyles();
 
     return (
-        <Card>
+        <Card className="cardContainer">
             <CardMedia className={classes.media} image={product.media.source} title={product.name} />
             <CardContent>
                 <div className={classes.cardContent}>

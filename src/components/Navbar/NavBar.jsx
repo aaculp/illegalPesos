@@ -9,6 +9,10 @@ import {
   Typography,
 } from "@material-ui/core";
 
+import pieces from '../../assets/pieces.png';
+import piecesOnline from '../../assets/piecesOnline.png';
+import PSTag from '../../assets/PS-Tag.png';
+
 import { ShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
@@ -29,6 +33,14 @@ const NavBar = ({ totalItems }) => {
               height="25px"
               className={classes.image}
             />
+
+            {/* <img
+              src={piecesOnline}
+              alt="Illegal Pe$os"
+              height="25px"
+              width="50%"
+              className={classes.image}
+            /> */}
           </Typography>
           <MusicSlider id="dtNav" />
           {location.pathname === '/' && (

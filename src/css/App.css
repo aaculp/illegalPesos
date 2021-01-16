@@ -198,7 +198,13 @@ a:hover {
     background-color: #216c2a;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+}
+
+.App .MuiPaper-root.cardContainer {
+    color: #292a33;
+    background: linear-gradient(to right, #7aee8f, #4f9bec);
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* FOOTER STYLES */
@@ -210,6 +216,10 @@ a:hover {
     align-items: center;
     margin: 0 auto;
     height: 5%;
+    background: linear-gradient(to right, #7aee8f, #4f9bec);
+    background-clip: border-box;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .mainFooter:hover {
