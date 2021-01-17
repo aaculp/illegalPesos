@@ -151,7 +151,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .App .payCartContainer {
@@ -195,7 +195,7 @@ a:hover {
 
 .App .MuiPaper-root {
     color: #292a33;
-    background-color: #216c2a;
+    background: linear-gradient(to right, #7aee8f, #4f9bec);
     flex-direction: column;
     justify-content: center;
 }
@@ -320,11 +320,12 @@ a:hover {
     }
 
     .App .storeContent {
-       height: unset;
+       height: inherit;
     }
 
     .App .payCartContainer {
         margin-top: 150px;
+        height: inherit;
     }
 
     .MuiCard-root {
